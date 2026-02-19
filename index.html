@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor en Bucle</title>
+    <style>
+        /* Estilos inspirados en Spotify */
+        body {
+            background-color: #121212; /* Fondo oscuro */
+            color: #ffffff; /* Texto blanco */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .player-container {
+            background-color: #181818; /* Tarjeta un poco más clara */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 300px;
+        }
+
+        .track-title {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .track-artist {
+            color: #b3b3b3;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            color: #b3b3b3;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+        }
+
+        button:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        /* Botón de Play con el verde característico */
+        #playBtn {
+            background-color: #1DB954; /* Verde Spotify */
+            color: black;
+            border-radius: 50%;
+            padding-left: 5px; /* Centrar visualmente el triángulo */
+        }
+
+        #playBtn:hover {
+            background-color: #1ed760;
+            transform: scale(1.05);
+        }
+
+        #pauseBtn {
+            border: 2px solid #b3b3b3;
+            border-radius: 50%;
+        }
+
+        #pauseBtn:hover {
+            border-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <h2 class="track-title">Sonido Infinito</h2>
+        <p class="track-artist">Reproducción en bucle</p>
+
+        <audio id="miAudio" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+
+        <div class="controls">
+            <button id="playBtn" title="Reproducir">▶</button>
+            <button id="pauseBtn" title="Pausar">⏸</button>
+        </div>
+    </div>
+
+    <script>
+        // Obtenemos los elementos del DOM
+        const audio = document.getElementById('miAudio');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+
+        // Función para reproducir
+        playBtn.addEventListener('click', () => {
+            audio.play();
+        });
+
+        // Función para pausar
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+        });
+    </script>
+
+</body>
+</html>
